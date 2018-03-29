@@ -1,0 +1,24 @@
+{
+  "name": "cde-demo-app",
+  "version": "1.0.0",
+  "description": "A demo app I use in the continuous delivery pipeline demonstration of my Bachelor's thesis.",
+  "main": "index.js",
+  "scripts": {
+    "unit-tests": "nodeunit tests/unit-tests.js",
+    "acceptance-tests": "mocha tests/acceptance-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/l3ku/cde-demo-app.git"
+  },
+  "author": "Leo Toikka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/l3ku/cde-demo-app/issues"
+  },
+  "homepage": "https://github.com/l3ku/cde-demo-app#readme",
+  "dependencies": {
+    "nodeunit": "^0.11.2",
+    "zombie": "^5.0.8"
+  }
+}
