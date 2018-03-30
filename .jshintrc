@@ -1,0 +1,15 @@
+{
+    "undef": true,
+    "unused": false,
+    "strict": false,
+    "node": true,
+    "globals"   : {
+        /* Mocha & Zombie */
+        "describe"   : false,
+        "it"         : false,
+        "before"     : false,
+        "beforeEach" : false,
+        "after"      : false,
+        "afterEach"  : false
+    }
+}

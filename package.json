@@ -4,7 +4,9 @@
   "description": "A demo app I use in the continuous delivery pipeline demonstration of my Bachelor's thesis.",
   "main": "index.js",
   "scripts": {
+    "test": "nodeunit tests/unit-tests.js && jshint $(find . ! -path './node_modules/*' -name '*.js') && mocha tests/acceptance-tests.js",
     "unit-tests": "nodeunit tests/unit-tests.js",
+    "style-tests": "jshint $(find . ! -path './node_modules/*' -name '*.js')",
     "acceptance-tests": "mocha tests/acceptance-tests.js"
   },
   "repository": {
@@ -18,6 +20,7 @@
   },
   "homepage": "https://github.com/l3ku/cde-demo-app#readme",
   "dependencies": {
+    "jshint": "^2.9.5",
     "nodeunit": "^0.11.2",
     "zombie": "^5.0.8"
   }
