@@ -1,11 +1,13 @@
 /**
- * The main module which creates the HTTP server.
+ * @file The main module which creates the HTTP server.
  */
 var http = require('http');
 var httpPort = 8123;
 
 /**
  * Output the HTML head to the HTTP response.
+ *
+ * @param {{object}} response - A reference to the HTTP response that will be sent to the browser.
  */
 function writeHead(response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
@@ -19,6 +21,8 @@ function writeHead(response) {
 
 /**
  * Output the footer to the HTTP response.
+ *
+ * @param {object} response - A reference to the HTTP response that will be sent to the browser.
  */
 function writeFooter(response) {
     response.write('</body>');
@@ -27,6 +31,9 @@ function writeFooter(response) {
 
 /**
  * Output the home page content to the HTTP response.
+ *
+ * @param {object} request - A reference to the HTTP request that was sent to the web server.
+ * @param {object} response - A reference to the HTTP response that will be sent to the browser.
  */
 function writeHTTPContent(request, response) {
     writeHead(response);
@@ -35,6 +42,7 @@ function writeHTTPContent(request, response) {
     response.end();
 }
 
+/** HTTP server response handler */
 module.exports = writeHTTPContent;
 
 // Export HTTP server as a module to make it possible for tests to use the server.

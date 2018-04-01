@@ -1,7 +1,8 @@
 /**
- * This module contains all acceptance tests. The Zombie testing framework is
+ * @file This module contains all acceptance tests. The Zombie testing framework is
  * used in the implementation of acceptance tests.
  */
+
 var http = require('http');
 var Browser = require('zombie');
 var index = require('./../index');
