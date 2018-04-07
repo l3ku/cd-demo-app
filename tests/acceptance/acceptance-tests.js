@@ -5,7 +5,7 @@
 
 var http = require('http');
 var Browser = require('zombie');
-var index = require('./../index');
+var index = require('./../../index');
 var testServerPort = 8124;
 
 /**

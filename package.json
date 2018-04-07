@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run unit-tests && npm run style-tests && npm run acceptance-tests",
-    "unit-tests": "nodeunit tests/unit-tests.js",
+    "unit-tests": "nodeunit tests/unit/*.js",
     "style-tests": "jshint $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js')",
-    "generate-docs": "./node_modules/.bin/jsdoc -d docs/ $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js')",
-    "acceptance-tests": "mocha tests/acceptance-tests.js"
+    "generate-docs": "./node_modules/.bin/jsdoc -d docs/ $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js ! -path './tests/*'')",
+    "acceptance-tests": "mocha tests/acceptance/*.js"
   },
   "repository": {
     "type": "git",
