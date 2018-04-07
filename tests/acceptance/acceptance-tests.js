@@ -32,4 +32,8 @@ describe('The home page is displayed correctly', function () {
     it('Should read "Hello World!" on the home page', function () {
         this.browser.assert.text('article.hello-world', 'Hello World!');
     });
+
+    after(function(done) {
+        this.server.close(done);
+    });
 });
