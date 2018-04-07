@@ -8,7 +8,7 @@
     "unit-tests": "nodeunit tests/unit/*.js",
     "style-tests": "jshint $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js')",
     "generate-docs": "./node_modules/.bin/jsdoc -d docs/ $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js ! -path './tests/*'')",
-    "acceptance-tests": "mocha tests/acceptance/*.js"
+    "acceptance-tests": "./node_modules/mocha/bin/mocha tests/acceptance/*.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "dependencies": {
     "jsdoc": "^3.5.5",
     "jshint": "^2.9.5",
+    "mocha": "^5.0.5",
     "nodeunit": "^0.11.2",
     "zombie": "^5.0.8"
   }
