@@ -3,13 +3,6 @@
   "version": "1.0.0",
   "description": "A demo app I use in the continuous delivery pipeline demonstration of my Bachelor's thesis.",
   "main": "index.js",
-  "scripts": {
-    "test": "npm run unit-tests && npm run style-tests && npm run acceptance-tests",
-    "unit-tests": "nodeunit tests/unit/*.js",
-    "style-tests": "jshint $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js')",
-    "generate-docs": "./node_modules/.bin/jsdoc -d docs/ $(find . ! -path './node_modules/*' ! -path './docs/*' -name '*.js ! -path './tests/*'')",
-    "acceptance-tests": "./node_modules/mocha/bin/mocha tests/acceptance/*.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/l3ku/cde-demo-app.git"
