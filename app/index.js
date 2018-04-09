@@ -2,7 +2,7 @@
  * @file The main module which creates the HTTP server.
  */
 var http = require('http');
-var httpPort = 8123;
+var httpPort = 8888;
 
 /**
  * Output the HTML head to the HTTP response.
