@@ -1,0 +1,32 @@
+- name: Install dependencies
+  hosts: all
+  tasks:
+    - name: Update and upgrade apt packages
+      become: sudo
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    - name: Install python-yaml
+      become: sudo
+      apt: pkg=python-yaml state=present
+
+    - name: Install python-jinja2
+      become: sudo
+      apt: pkg=python-jinja2 state=present
+
+    - name: Install python-pycurl
+      become: sudo
+      apt: pkg=python-pycurl state=present
+
+- name: Install Docker on remote hosts
+  hosts: all
+  become: sudo
+  tasks:
+    - name: Install docker
+      shell: curl -sSL https://get.docker.com | sh
+
+- name: Install application
+  hosts: all
+  tasks:
+    -
