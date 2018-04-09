@@ -11,12 +11,7 @@ var httpPort = 8123;
  */
 function writeHead(response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<!DOCTYPE HTML>');
-    response.write('<html>');
-    response.write('<head>');
-    response.write('<title>Home Page</title>');
-    response.write('</head>');
-    response.write('<body>');
+    response.write('<!DOCTYPE HTML><html><head><title>Home Page</title></head><body>');
 }
 
 /**
@@ -25,8 +20,7 @@ function writeHead(response) {
  * @param {object} response - A reference to the HTTP response that will be sent to the browser.
  */
 function writeFooter(response) {
-    response.write('</body>');
-    response.write('</html>');
+    response.write('</body></html>');
 }
 
 /**
