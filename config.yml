@@ -11,25 +11,21 @@
       become: yes
       apt: pkg=python-pip state=present
 
-    - name: Install docker-py
+    - name: Update pip to latest version
+      become: yes
+      pip:
+        name: pip
+        extra_args: --upgrade
+
+    - name: Install latest docker-py version
+      become: yes
       pip:
         name: docker-py
-
-- name: Install Docker
-  hosts: all
-  tasks:
-    - name: Install docker
-      shell: curl -sSL https://get.docker.com | sh
-
-    - name: Add current user to docker group
-      become: yes
-      user:
-        name: ubuntu
-        groups: docker
-        append: yes
+        extra_args: --upgrade
 
 - name: Remove current application instance
   hosts: all
+  become: yes
   tasks:
     - name: Remove current application container
       docker_container:
@@ -38,6 +34,7 @@
 
 - name: Install and run new application
   hosts: all
+  become: yes
   tasks:
     - name: Start l3ku/cde-demo-app Docker container
       docker_container:
