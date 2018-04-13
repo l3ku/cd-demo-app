@@ -36,12 +36,6 @@ function writeHTTPContent(request, response) {
     response.end();
 }
 
-/** HTTP server response handler */
-module.exports = writeHTTPContent;
-
-// Export HTTP server as a module to make it possible for tests to use the server.
-if (!module.parent) {
-    http.createServer(writeHTTPContent).listen(httpPort, function () {
-        console.log('HTTP server is listening on port ' + httpPort);
-    });
-}
+http.createServer(writeHTTPContent).listen(httpPort, function () {
+    console.log('HTTP server is listening on port ' + httpPort);
+});
