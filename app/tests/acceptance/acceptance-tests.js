@@ -21,11 +21,23 @@ describe('The home page is displayed correctly', function () {
         this.browser.assert.success();
     });
 
-    it('Must have the correct page title', function () {
-        this.browser.assert.text('title', 'Home Page');
+    it('Must have the correct HTML title', function () {
+        this.browser.assert.text('title', 'CD Demo App');
     });
 
-    it('Should read "Hello World!" on the home page', function () {
-        this.browser.assert.text('article.hello-world', 'Hello World!');
+    it('Should have a correct h1 page title', function () {
+        this.browser.assert.text('h1.page-title', 'Continuous Delivery Demo Application');
+    });
+
+    it('Should have the correct description', function () {
+        this.browser.assert.text('p.page-description', 'This is a demo app that I use in the Continuous Delivery pipeline in my Bachelor\'s thesis.');
+    });
+
+    it('Should have the correct small text', function () {
+        this.browser.assert.text('small.page-ps', 'P.S. Check the GitHub repo for details');
+    });
+
+    it('The small text should have the correct GitHub link', function () {
+        this.browser.assert.link('small.page-ps a.github-link', 'GitHub repo', 'https://github.com/l3ku/cd-demo-app');
     });
 });

@@ -11,7 +11,7 @@ var httpPort = 8888;
  */
 function writeHead(response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<!DOCTYPE HTML><html><head><title>Home Page</title></head><body>');
+    response.write('<!DOCTYPE HTML><html><head><title>CD Demo App</title></head><body>');
 }
 
 /**
@@ -31,7 +31,9 @@ function writeFooter(response) {
  */
 function writeHTTPContent(request, response) {
     writeHead(response);
-    response.write('<article class="hello-world">Hello World!</article>');
+    response.write('<h1 class="page-title">Continuous Delivery Demo Application</h1>');
+    response.write('<p class="page-description">This is a demo app that I use in the Continuous Delivery pipeline in my Bachelor\'s thesis.</p>');
+    response.write('<small class="page-ps">P.S. Check the <a class="github-link" href="https://github.com/l3ku/cd-demo-app">GitHub repo</a> for details</small>');
     writeFooter(response);
     response.end();
 }
