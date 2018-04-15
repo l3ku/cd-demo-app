@@ -1,5 +1,5 @@
 {
-  "name": "cde-demo-app",
+  "name": "cd-demo-app",
   "version": "1.0.0",
   "description": "A demo app I use in the continuous delivery pipeline demonstration of my Bachelor's thesis.",
   "main": "index.js",

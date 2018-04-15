@@ -36,11 +36,10 @@
   hosts: all
   become: yes
   tasks:
-    - name: Start l3ku/cde-demo-app Docker container
+    - name: Start l3ku/cd-demo-app Docker container
       docker_container:
-        name: cde-demo-app
-        image: l3ku/cde-demo-app
-        pull: yes
+        name: cd-demo-app
+        image: l3ku/cd-demo-app:{{ dockerImageVersion }}
         state: started
         ports:
          - "80:8888"
