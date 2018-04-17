@@ -1,15 +1,31 @@
 - name: Install dependencies
   hosts: all
   tasks:
-    - name: Update and upgrade apt packages
+    - name: Add Docker’s official GPG key
+      become: yes
+      apt_key:
+        file: https://download.docker.com/linux/ubuntu/gpg
+        id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+        state: present
+
+    - name: Use Docker's own apt repository
+      become: yes
+      apt_repository:
+        repo: 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+        state: present
+
+    - name: Install Docker Community Edition, run apt update before installation
       become: yes
       apt:
-        upgrade: yes
         update_cache: yes
+        pkg: docker-ce
+        state: present
 
     - name: Install python-pip
       become: yes
-      apt: pkg=python-pip state=present
+      apt:
+        pkg: python-pip
+        state: present
 
     - name: Update pip to latest version
       become: yes
@@ -22,6 +38,12 @@
       pip:
         name: docker-py
         extra_args: --upgrade
+
+    - name: Update and upgrade apt packages
+      become: yes
+      apt:
+        upgrade: yes
+        update_cache: yes
 
 - name: Remove current application instance
   hosts: all
