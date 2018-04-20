@@ -1,4 +1,4 @@
-- name: Install dependencies
+- name: Initialize run environment for application Docker container
   hosts: all
   tasks:
     - name: Add Docker’s official GPG key
@@ -27,38 +27,22 @@
         pkg: python-pip
         state: present
 
-    - name: Update pip to latest version
-      become: yes
-      pip:
-        name: pip
-        extra_args: --upgrade
-
     - name: Install latest docker-py version
       become: yes
       pip:
         name: docker-py
         extra_args: --upgrade
 
-    - name: Update and upgrade apt packages
-      become: yes
-      apt:
-        upgrade: yes
-        update_cache: yes
-
-- name: Remove current application instance
+- name: Replace currently running application Docker container with deployed version
   hosts: all
   become: yes
   tasks:
-    - name: Remove current application container
+    - name: Stop and remove current application Docker container
       docker_container:
         name: cde-demo-app
         state: absent
 
-- name: Install and run new application
-  hosts: all
-  become: yes
-  tasks:
-    - name: Start l3ku/cd-demo-app Docker container
+    - name: Start Docker container based on new application Docker image
       docker_container:
         name: cd-demo-app
         image: l3ku/cd-demo-app:{{ dockerImageVersion }}
