@@ -26,7 +26,7 @@ pipeline {
                         sh "./app/scripts/acceptance-tests.sh"
                         input "Is the build version ${env.BUILD_ID} releasable after performing manual tests?"
                     }
-                    docker.withRegistry("", "jenkins-docker-hub-auth") {
+                    docker.withRegistry("https://registry.hub.docker.com/l3ku/cd-demo-app/", "jenkins-docker-hub-auth") {
                         dockerImage.push()
                     }
                 }
