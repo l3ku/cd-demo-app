@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 pipeline {
     agent any
     stages {
@@ -47,9 +48,9 @@ pipeline {
     }
     post {
         failure {
-            mail (to: "leo.toikka@student.tut.fi",
+            mail to: "leo.toikka@student.tut.fi",
             subject: "Failed Deployment: ${currentBuild.fullDisplayName}",
-            body: "Something is wrong with ${env.BUILD_URL}");
+            body: "Something is wrong with ${env.BUILD_URL}"
         }
     }
 }
