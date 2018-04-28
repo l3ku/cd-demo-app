@@ -24,6 +24,7 @@ pipeline {
                 script {
                     def dockerImage = docker.build("l3ku/cd-demo-app:${env.BUILD_ID}", "app")
                     dockerImage.withRun("-p 80:8888") {
+                        sh "./smoke-test.sh 127.0.0.1"
                         sh "./app/scripts/acceptance-tests.sh"
                         input "Is the build version ${env.BUILD_ID} releasable after performing manual tests?"
                     }
