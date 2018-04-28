@@ -39,10 +39,6 @@ pipeline {
             steps {
                 sleep 10
                 sh "ansible-playbook config.yml -i inventory/production.yml --extra-vars 'dockerImageVersion=${env.BUILD_ID}'"
-            }
-        }
-        stage("Smoke test") {
-            steps {
                 sh "./smoke-test.sh 18.197.117.188"
             }
         }
