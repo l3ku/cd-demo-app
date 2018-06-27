@@ -30,7 +30,7 @@ describe('The home page is displayed correctly', function () {
     });
 
     it('Should have the correct description', function () {
-        this.browser.assert.text('p.page-description', 'This is a demo app that I use in the Continuous Delivery pipeline in my Bachelor\'s thesis.');
+        this.browser.assert.text('p.page-description', 'This is a demo app that I use for Continuous Delivery pipeline demonstration purposes.');
     });
 
     it('Should have the correct small text', function () {
