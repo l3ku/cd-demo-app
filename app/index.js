@@ -11,7 +11,7 @@ var httpPort = 8888;
  */
 function writeHead(response) {
     response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('<!DOCTYPE HTML><html><head><title>CD Demo App</title></head><body>');
+    response.write('<!DOCTYPE HTML><html><head><title>CD Demo App</title></head><style>body{text-align:center;}</style><body>');
 }
 
 /**
