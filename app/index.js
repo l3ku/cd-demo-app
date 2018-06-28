@@ -20,6 +20,7 @@ function writeHead(response) {
  * @param {object} response - A reference to the HTTP response that will be sent to the browser.
  */
 function writeFooter(response) {
+    response.write('<p>&copy; Leo Toikka 2018 </p>');
     response.write('</body></html>');
 }
 
